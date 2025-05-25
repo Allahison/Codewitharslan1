@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CodeWithArslan</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="welcome.css" />
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../Welcome page/welcome.html">CodeWithArslan</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="welcome.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/Allahison" target="_blank" rel="noopener noreferrer">GitHub Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Lang Stack
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="https://www.youtube.com/watch?v=7wnove7K-ZQ&list=PLu0W_9lII9agwh1XjRt242xIpHhPT2llg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Python Deep Dive</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="https://www.youtube.com/watch?v=ntLJmHOJ0ME&list=PLu0W_9lII9agS67Uits0UnJyrYiXhDS6q"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Java Deep Dive</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="https://www.youtube.com/watch?v=j8nAHeVKL08&list=PLu0W_9lII9agpFUAlPFe_VNSlXW5uE0YL"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >C++ Deep Dive</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <form class="d-flex me-2" role="search">
+            <input
+              id="searchInput"
+              class="form-control"
+              type="search"
+              placeholder="Search..."
+              aria-label="Search"
+            />
+          </form>
+          <button onclick="logout()" class="btn btn-danger">Logout</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Welcome Content -->
+  <div class="welcome-content container my-5 text-center animate-fadeIn">
+    <h1 class="display-4 fw-bold mb-3 text-gradient">
+      Welcome to <span class="text-primary">CodeWithArslan</span>
+    </h1>
+    <p class="lead mb-1">
+      Empowering you through <strong>code, creativity, and community.</strong>
+    </p>
+    <p class="text-muted">Let’s build something amazing together!</p>
+
+    <div class="row mt-5 g-4" id="cardContainer">
+      <!-- Explore Events -->
+      <div class="col-md-4" data-title="explore events tech meetups music festivals sports">
+        <div class="card border-0 shadow-lg h-100 card-animate">
+          <img src="../images/1.png" class="card-img-top rounded-top" alt="Explore Events" />
+          <div class="card-body text-start">
+            <h5 class="card-title">
+              <i class="bi bi-calendar-event text-primary me-2"></i>Explore Events
+            </h5>
+            <p class="card-text">
+              Join exciting tech meetups, music festivals, and sports events. Filter your passion & join!
+            </p>
+            <a href="../EventPage/events.html" class="btn btn-outline-primary btn-animated">Explore Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stay Updated -->
+      <div class="col-md-4" data-title="stay updated social media codewitharslan community">
+        <div class="card border-0 shadow-lg h-100 card-animate">
+          <img src="../images/3.jpeg" class="card-img-top rounded-top" alt="Stay Updated" />
+          <div class="card-body text-start">
+            <h5 class="card-title">
+              <i class="bi bi-broadcast-pin text-info me-2"></i>Stay Updated
+            </h5>
+            <p class="card-text">
+              Follow us on social media and stay connected with the CodeWithArslan community.
+            </p>
+            <a href="../update/stay-updated.html" class="btn btn-info text-white btn-animated">Connect</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Need Help -->
+      <div class="col-md-4" data-title="need help support assistance contact">
+        <div class="card border-0 shadow-lg h-100 card-animate">
+          <img src="../images/2.jpeg" class="card-img-top rounded-top" alt="Need Help" />
+          <div class="card-body text-start">
+            <h5 class="card-title">
+              <i class="bi bi-life-preserver text-warning me-2"></i>Need Help?
+            </h5>
+            <p class="card-text">
+              Reach out anytime — our support team is always ready to assist you.
+            </p>
+            <a href="../contect us/contact.html" class="btn btn-warning text-white btn-animated">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer bg-light py-4 mt-5">
+    <div class="container footer-container d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <div class="footer-logo mb-3 mb-md-0">
+        <h2>CodeWithArslan</h2>
+        <p class="mb-0">Connecting people through clean and modern design.</p>
+      </div>
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-icons fs-4">
+          <a href="https://www.facebook.com/profile.php?id=100009200415732" target="_blank" rel="noopener noreferrer" class="me-3">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/muhammed-arslan-aa8808276/" target="_blank" rel="noopener noreferrer" class="me-3">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/Allahison" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom text-center mt-3">
+      <p class="mb-0">&copy; 2025 CodeWithArslan. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Firebase & Search Script -->
+  <script>
+    // Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyC6iFt1qbLbuUPgwR9anqowlf29hk2a5p0",
+      authDomain: "assignment-5dc41.firebaseapp.com",
+      projectId: "assignment-5dc41",
+      storageBucket: "assignment-5dc41.appspot.com",
+      messagingSenderId: "657312128928",
+      appId: "1:657312128928:web:4f680f949944979c610ec5",
+      measurementId: "G-FHX5GH5TK3",
+    };
+
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+
+    const auth = firebase.auth();
+
+    auth.onAuthStateChanged((user) => {
+      if (!user) {
+        window.location.href = "../Login Page/Login.html";
+      }
+    });
+
+    function logout() {
+      auth
+        .signOut()
+        .then(() => {
+          window.location.href = "../Login Page/Login.html";
+        })
+        .catch((error) => {
+          alert("Error logging out: " + error.message);
+        });
+    }
+
+    // Search Filter Script
+    const searchInput = document.getElementById("searchInput");
+    const cards = document.querySelectorAll(".col-md-4");
+
+    searchInput.addEventListener("input", function () {
+      const query = this.value.toLowerCase().trim();
+
+      cards.forEach((card) => {
+        const title = card.getAttribute("data-title").toLowerCase();
+        card.style.display = title.includes(query) ? "block" : "none";
+      });
+    });
+  </script>
+
+  <!-- Bootstrap JS Bundle -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>
